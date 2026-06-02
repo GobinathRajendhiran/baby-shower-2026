@@ -13,15 +13,15 @@
 
   <style>
     /* ==========================================================
-       Premium Glassmorphism / Mobile-First Design
+       Vibrant Gradient + Glassmorphism + Floral Borders
        ========================================================== */
 
     :root {
-      --glass-bg: rgba(255, 255, 255, 0.15);
-      --glass-border: rgba(255, 255, 255, 0.3);
-      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-      --text-gold: #FFD700;
-      --text-light: #F8F9FA;
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      --text-main: #FFFFFF;
+      --text-gold: #FFE600;
       --bottom-safe: calc(90px + env(safe-area-inset-bottom));
     }
 
@@ -39,10 +39,10 @@
     body {
       min-height: 100vh;
       font-family: "Noto Sans Tamil", sans-serif;
-      /* Premium Gradient Background */
-      background: linear-gradient(135deg, #741b47, #c21500);
+      /* Vibrant Multi-color Gradient */
+      background: linear-gradient(135deg, #FF005C, #FF7A00, #FFD100);
       background-attachment: fixed;
-      color: var(--text-light);
+      color: var(--text-main);
       padding-bottom: var(--bottom-safe);
       overflow-x: hidden;
     }
@@ -57,53 +57,101 @@
     }
 
     /* ==========================
-       Glassmorphism Reusable Classes
+       Glassmorphism Cards
        ========================== */
     .glass-card {
       background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
-      border-top: 1px solid rgba(255, 255, 255, 0.5);
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
       box-shadow: var(--glass-shadow);
       border-radius: 24px;
-      padding: 24px;
-      margin-bottom: 20px;
+      padding: 16px; /* Outer padding */
+      margin-bottom: 24px;
     }
 
+    /* ==========================
+       Floral & Line Borders
+       ========================== */
+    .decorative-border {
+      border: 2px dashed rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      padding: 24px 16px;
+      position: relative;
+    }
+
+    /* Corner Flowers */
+    .decorative-border::before,
+    .decorative-border::after,
+    .corner-tr,
+    .corner-bl {
+      position: absolute;
+      font-size: 1.8rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .decorative-border::before { content: '🌸'; top: -14px; left: -12px; }
+    .decorative-border::after { content: '🌸'; bottom: -14px; right: -12px; }
+    .corner-tr { content: '🌼'; top: -14px; right: -12px; }
+    .corner-bl { content: '🌼'; bottom: -14px; left: -12px; }
+
+    /* Divider Lines */
+    .floral-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 15px 0;
+      color: var(--text-gold);
+    }
+    .floral-divider::before,
+    .floral-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    .floral-divider span {
+      padding: 0 10px;
+      font-size: 1.3rem;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    }
+
+    /* ==========================
+       Glass Buttons
+       ========================== */
     .glass-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       border-radius: 999px;
       color: #fff;
       font-weight: 700;
-      font-size: 1.05rem;
-      padding: 14px 24px;
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      padding: 16px 28px;
+      transition: transform 0.2s ease, background 0.2s ease;
       cursor: pointer;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     .glass-button:active {
       transform: scale(0.95);
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.4);
     }
 
     /* ==========================
-       Welcome / Unlock Screen (For Audio)
+       Welcome Screen
        ========================== */
     #welcome-screen {
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: linear-gradient(135deg, #741b47, #c21500);
+      background: linear-gradient(135deg, #FF005C, #FF7A00, #FFD100);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -123,10 +171,11 @@
       font-size: 2.2rem;
       color: var(--text-gold);
       margin-bottom: 20px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
     /* ==========================
-       Main Layout & Typography
+       Typography & Layout
        ========================== */
     .container {
       width: min(100%, 600px);
@@ -134,14 +183,25 @@
       padding: 20px 16px;
     }
 
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
     .title-text {
       font-family: "Arima", sans-serif;
       color: var(--text-gold);
-      font-size: clamp(2.2rem, 10vw, 3.5rem);
+      font-size: clamp(2.4rem, 11vw, 3.8rem);
       font-weight: 800;
       text-align: center;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      margin-bottom: 10px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+      margin-bottom: 5px;
     }
 
     .names-text {
@@ -150,16 +210,17 @@
       font-weight: 700;
       text-align: center;
       line-height: 1.4;
-      margin: 15px 0;
+      margin: 10px 0;
       text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     .poem-text {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.8;
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 15px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     /* ==========================
@@ -169,26 +230,27 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .detail-item {
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
       padding: 16px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .detail-item span {
       display: block;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin-bottom: 8px;
     }
 
     .detail-item p {
       font-weight: 700;
       font-size: 0.95rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
 
     /* ==========================
@@ -199,14 +261,16 @@
       line-height: 2;
       text-align: center;
       margin-bottom: 20px;
-      font-weight: 500;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     .map-container {
       width: 100%;
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 2px solid rgba(255,255,255,0.6);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .map-container iframe {
@@ -224,10 +288,11 @@
       top: 15px;
       right: 15px;
       z-index: 100;
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       padding: 0;
+      font-size: 1.3rem;
     }
 
     /* ==========================
@@ -246,9 +311,10 @@
     .sticky-cta {
       width: 100%;
       max-width: 400px;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 140, 0, 0.8));
-      color: #333;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.95), rgba(255, 140, 0, 0.95));
+      color: #7A0000;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      text-shadow: none;
     }
 
     .section-heading {
@@ -256,33 +322,36 @@
       color: var(--text-gold);
       font-size: 1.8rem;
       text-align: center;
-      margin-bottom: 15px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 10px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body class="no-scroll">
 
-  <!-- Audio Element (Cloud link for flute music) -->
-  <!-- Note: You can replace the 'src' link with any mp3 direct link if you prefer another song -->
+  <!-- Audio Element -->
   <audio id="bg-music" loop>
     <source src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bansuri_flute_music.ogg" type="audio/ogg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Welcome Screen (To bypass autoplay restrictions on mobile) -->
+  <!-- Welcome Screen (Music Unlock) -->
   <div id="welcome-screen">
     <div class="glass-card welcome-glass">
-      <h2>வளைகாப்பு விழா</h2>
-      <p style="margin-bottom: 25px; font-size: 1.1rem;">இசையுடன் கூடிய அழைப்பிதழை காண கீழே தொடவும்</p>
-      <button class="glass-button" id="open-invite-btn">
-        <span>💌 அழைப்பிதழை திறக்க</span>
-      </button>
+      <div class="decorative-border">
+        <span class="corner-tr"></span>
+        <span class="corner-bl"></span>
+        <h2>வளைகாப்பு விழா</h2>
+        <div class="floral-divider"><span>🌺</span></div>
+        <p style="margin-bottom: 25px; font-size: 1.1rem; font-weight: 600;">இசையுடன் கூடிய அழைப்பிதழை காண கீழே தொடவும்</p>
+        <button class="glass-button" id="open-invite-btn">
+          <span>💌 அழைப்பிதழை திறக்க</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- Main Website Content (Hidden initially behind welcome screen) -->
+  <!-- Main Website Content -->
   <div id="main-content" style="opacity: 0; height: 0; overflow: hidden; transition: opacity 0.5s ease;">
     
     <!-- Floating Music Toggle -->
@@ -294,70 +363,100 @@
       
       <!-- Hero Section -->
       <div class="glass-card">
-        <div style="text-align: center; margin-bottom: 10px;">
-          <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">அன்புடன் வரவேற்கிறோம்</span>
+        <div class="decorative-border">
+          <span class="corner-tr"></span>
+          <span class="corner-bl"></span>
+          
+          <div style="text-align: center;">
+            <span class="badge">அன்புடன் வரவேற்கிறோம்</span>
+          </div>
+          
+          <h1 class="title-text">வளைகாப்பு</h1>
+          
+          <div class="floral-divider"><span>❁ ❀ ❁</span></div>
+
+          <p class="names-text">துர்கா தேவி <br><span style="font-size: 1.4rem; color: #FFD100;">&</span><br> கோபிநாத் ராஜேந்திரன்</p>
+          
+          <div class="floral-divider"><span>❁ ❀ ❁</span></div>
+
+          <p class="poem-text">
+            தாய்மையின் பூரிப்பில் அவள் சிரிக்க,<br> கைகளில் வளையல்கள் இசைக்க,<br> 
+            நம் இல்லம் சிறக்க வரும் மழலையை வாழ்த்த அன்புடன் அழைக்கிறோம்!
+          </p>
         </div>
-        <h1 class="title-text">வளைகாப்பு</h1>
-        <p class="names-text">துர்கா தேவி <br><span style="font-size: 1.2rem; color: #FFD700;">&</span><br> கோபிநாத் ராஜேந்திரன்</p>
-        
-        <p class="poem-text">
-          தாய்மையின் பூரிப்பில் அவள் சிரிக்க, கைகளில் வளையல்கள் இசைக்க,<br> 
-          நம் இல்லம் சிறக்க வரும் மழலையை வாழ்த்த அன்புடன் அழைக்கிறோம்!
-        </p>
       </div>
 
       <!-- Details Section -->
       <div class="glass-card">
-        <h2 class="section-heading">மங்கள நிகழ்ச்சி விவரங்கள்</h2>
-        <p class="poem-text" style="font-size: 1rem;">
-          குங்கும மணம் வீச, மங்கல நாதம் ஒலிக்க, வளையலோசை நடுவே வளைகாப்பு நாயகியை வாழ்த்த வாருங்கள்!
-        </p>
-        
-        <div class="detail-grid">
-          <div class="detail-item">
-            <span>📅</span>
-            <p>23 ஆகஸ்ட் 2026</p>
-          </div>
-          <div class="detail-item">
-            <span>🕘</span>
-            <p>காலை 9:30 - 11:00</p>
+        <div class="decorative-border">
+          <span class="corner-tr"></span>
+          <span class="corner-bl"></span>
+
+          <h2 class="section-heading">மங்கள நிகழ்ச்சி</h2>
+          <div class="floral-divider"><span>🌿</span></div>
+
+          <p class="poem-text">
+            குங்கும மணம் வீச, மங்கல நாதம் ஒலிக்க, வளையலோசை நடுவே வளைகாப்பு நாயகியை வாழ்த்த வாருங்கள்!
+          </p>
+          
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span>📅</span>
+              <p>23 ஆகஸ்ட் 2026</p>
+            </div>
+            <div class="detail-item">
+              <span>🕘</span>
+              <p>காலை 9:30 - 11:00</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Location Section -->
       <div class="glass-card">
-        <h2 class="section-heading">விழா நடைபெறும் இடம்</h2>
-        
-        <div class="address-box">
-          தமிழ்நாடு கிராம வங்கி அருகில்,<br />
-          பழைய EB ஆபிஸ் எதிரில்,<br />
-          செந்தாரப்பட்டி (அஞ்சல்),<br />
-          கெங்கவல்லி (தாலுகா),<br />
-          சேலம் (மாவட்டம்) - 636110.
-        </div>
+        <div class="decorative-border">
+          <span class="corner-tr"></span>
+          <span class="corner-bl"></span>
 
-        <div class="map-container">
-          <!-- Embed Google Map -->
-          <iframe
-            title="விழா நடைபெறும் இடத்திற்கான கூகுள் மேப்"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=11.4390278,78.5213056&z=16&output=embed">
-          </iframe>
+          <h2 class="section-heading">விழா நடைபெறும் இடம்</h2>
+          <div class="floral-divider"><span>🪔</span></div>
+          
+          <div class="address-box">
+            தமிழ்நாடு கிராம வங்கி அருகில்,<br />
+            பழைய EB ஆபிஸ் எதிரில்,<br />
+            செந்தாரப்பட்டி (அஞ்சல்),<br />
+            கெங்கவல்லி (தாலுகா),<br />
+            சேலம் (மாவட்டம்) - 636110.
+          </div>
+
+          <div class="map-container">
+            <iframe
+              title="விழா நடைபெறும் இடத்திற்கான கூகுள் மேப்"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=11.4390278,78.5213056&z=16&output=embed">
+            </iframe>
+          </div>
         </div>
       </div>
 
       <!-- Footer / Blessing -->
-      <div class="glass-card" style="text-align: center; margin-bottom: 40px;">
-        <h2 class="section-heading" style="border:none; margin-bottom: 5px;">உங்கள் வருகையே மகிழ்ச்சி</h2>
-        <p class="poem-text" style="font-size: 1rem;">
-          வருகை தரும் நல்உள்ளங்களுக்கு நெஞ்சார்ந்த நன்றிகள். உங்கள் ஆசிகளே எங்கள் மழலையின் முதல் தாலாட்டு.
-        </p>
-        <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 15px;">
-          அன்புடன் அழைக்கும்: குடும்பத்தார் மற்றும் நண்பர்கள்
-        </p>
+      <div class="glass-card" style="margin-bottom: 40px;">
+        <div class="decorative-border" style="text-align: center;">
+          <span class="corner-tr"></span>
+          <span class="corner-bl"></span>
+
+          <h2 class="section-heading" style="font-size: 1.6rem;">உங்கள் வருகையே மகிழ்ச்சி</h2>
+          <div class="floral-divider"><span>✨</span></div>
+
+          <p class="poem-text">
+            வருகை தரும் நல்உள்ளங்களுக்கு நெஞ்சார்ந்த நன்றிகள். உங்கள் ஆசிகளே எங்கள் மழலையின் முதல் தாலாட்டு.
+          </p>
+          <p style="font-size: 0.9rem; font-weight: 700; color: var(--text-gold); margin-top: 15px;">
+            அன்புடன் அழைக்கும்: <br>குடும்பத்தார் மற்றும் நண்பர்கள்
+          </p>
+        </div>
       </div>
 
     </div>
@@ -372,7 +471,7 @@
 
   <script>
     /* ==========================================================
-       Simple & Fast JavaScript for Audio and Setup
+       JavaScript for Audio and Setup
        ========================================================== */
     const welcomeScreen = document.getElementById('welcome-screen');
     const mainContent = document.getElementById('main-content');
@@ -383,7 +482,6 @@
 
     // Handle Open Button Click
     openBtn.addEventListener('click', () => {
-      // Play Music
       bgMusic.play().then(() => {
         isMusicPlaying = true;
         musicToggleBtn.innerHTML = "🔊";
@@ -392,7 +490,6 @@
         musicToggleBtn.innerHTML = "🔇";
       });
 
-      // Hide Welcome Screen & Show Main Content
       welcomeScreen.style.opacity = '0';
       setTimeout(() => {
         welcomeScreen.style.display = 'none';
