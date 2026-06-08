@@ -1,518 +1,142 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="துர்கா தேவி மற்றும் கோபிநாத் ராஜேந்திரன் வளைகாப்பு விழா அழைப்பிதழ்." />
-  <title>வளைகாப்பு விழா அழைப்பிதழ்</title>
-
-  <!-- Tamil Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <style>
-    /* ==========================================================
-       Vibrant Gradient + Glassmorphism + Floral Borders
-       ========================================================== */
-
-    :root {
-      --glass-bg: rgba(255, 255, 255, 0.25);
-      --glass-border: rgba(255, 255, 255, 0.5);
-      --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      --text-main: #FFFFFF;
-      --text-gold: #FFE600;
-      --bottom-safe: calc(90px + env(safe-area-inset-bottom));
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: "Noto Sans Tamil", sans-serif;
-      /* Vibrant Multi-color Gradient */
-      background: linear-gradient(135deg, #FF005C, #FF7A00, #FFD100);
-      background-attachment: fixed;
-      color: var(--text-main);
-      padding-bottom: var(--bottom-safe);
-      overflow-x: hidden;
-    }
-
-    body.no-scroll {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ==========================
-       Glassmorphism Cards
-       ========================== */
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      border-radius: 24px;
-      padding: 16px; /* Outer padding */
-      margin-bottom: 24px;
-    }
-
-    /* ==========================
-       Floral & Line Borders
-       ========================== */
-    .decorative-border {
-      border: 2px dashed rgba(255, 255, 255, 0.6);
-      border-radius: 16px;
-      padding: 24px 16px;
-      position: relative;
-    }
-
-    /* Corner Flowers */
-    .decorative-border::before,
-    .decorative-border::after,
-    .corner-tr,
-    .corner-bl {
-      position: absolute;
-      font-size: 1.8rem;
-      line-height: 1;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    }
-
-    .decorative-border::before { content: '🌸'; top: -14px; left: -12px; }
-    .decorative-border::after { content: '🌸'; bottom: -14px; right: -12px; }
-    .corner-tr { content: '🌼'; top: -14px; right: -12px; }
-    .corner-bl { content: '🌼'; bottom: -14px; left: -12px; }
-
-    /* Divider Lines */
-    .floral-divider {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      margin: 15px 0;
-      color: var(--text-gold);
-    }
-    .floral-divider::before,
-    .floral-divider::after {
-      content: '';
-      flex: 1;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    }
-    .floral-divider span {
-      padding: 0 10px;
-      font-size: 1.3rem;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
-    }
-
-    /* ==========================
-       Glass Buttons
-       ========================== */
-    .glass-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      border-radius: 999px;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 16px 28px;
-      transition: transform 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .glass-button:active {
-      transform: scale(0.95);
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    /* ==========================
-       Welcome Screen
-       ========================== */
-    #welcome-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: linear-gradient(135deg, #FF005C, #FF7A00, #FFD100);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      transition: opacity 0.6s ease;
-    }
-
-    .welcome-glass {
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .welcome-glass h2 {
-      font-family: "Arima", sans-serif;
-      font-size: 2.2rem;
-      color: var(--text-gold);
-      margin-bottom: 20px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    /* ==========================
-       Typography & Layout
-       ========================== */
-    .container {
-      width: min(100%, 600px);
-      margin: 0 auto;
-      padding: 20px 16px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.25);
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.4);
-      margin-bottom: 12px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .title-text {
-      font-family: "Arima", sans-serif;
-      color: var(--text-gold);
-      font-size: clamp(2.4rem, 11vw, 3.8rem);
-      font-weight: 800;
-      text-align: center;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.4);
-      margin-bottom: 5px;
-    }
-
-    .names-text {
-      font-family: "Arima", sans-serif;
-      font-size: clamp(1.8rem, 8vw, 2.5rem);
-      font-weight: 700;
-      text-align: center;
-      line-height: 1.4;
-      margin: 10px 0;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-
-    .poem-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 15px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
-
-    /* ==========================
-       Detail Grid
-       ========================== */
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .detail-item {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .detail-item span {
-      display: block;
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .detail-item p {
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    /* ==========================
-       Address & Map Section
-       ========================== */
-    .address-box {
-      font-size: 1.05rem;
-      line-height: 2;
-      text-align: center;
-      margin-bottom: 20px;
-      font-weight: 600;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
-
-    .map-container {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.6);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 250px;
-      display: block;
-      border: 0;
-    }
-
-    /* ==========================
-       Music Control
-       ========================== */
-    .music-control {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 100;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      padding: 0;
-      font-size: 1.3rem;
-    }
-
-    /* ==========================
-       Sticky Map CTA Button
-       ========================== */
-    .sticky-cta-container {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      right: 15px;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-    }
-
-    .sticky-cta {
-      width: 100%;
-      max-width: 400px;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.95), rgba(255, 140, 0, 0.95));
-      color: #7A0000;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      text-shadow: none;
-    }
-
-    .section-heading {
-      font-family: "Arima", sans-serif;
-      color: var(--text-gold);
-      font-size: 1.8rem;
-      text-align: center;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-  </style>
-</head>
-<body class="no-scroll">
-
-  <!-- Audio Element -->
-  <audio id="bg-music" loop>
-    <source src="https://res.cloudinary.com/dm7ya7fl2/video/upload/v1780391406/krasnoshchok-krishna-flute-hindu-music-450217_klucx4.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Welcome Screen (Music Unlock) -->
-  <div id="welcome-screen">
-    <div class="glass-card welcome-glass">
-      <div class="decorative-border">
-        <span class="corner-tr"></span>
-        <span class="corner-bl"></span>
-        <h2>வளைகாப்பு விழா</h2>
-        <div class="floral-divider"><span>🌺</span></div>
-        <p style="margin-bottom: 25px; font-size: 1.1rem; font-weight: 600;">இசையுடன் கூடிய அழைப்பிதழை காண கீழே தொடவும்</p>
-        <button class="glass-button" id="open-invite-btn">
-          <span>💌 அழைப்பிதழை திறக்க</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Website Content -->
-  <div id="main-content" style="opacity: 0; height: 0; overflow: hidden; transition: opacity 0.5s ease;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Durga Devi & Gobinath's Baby Shower</title>
+    <link rel="stylesheet" href="style.css">
     
-    <!-- Floating Music Toggle -->
-    <button class="glass-button music-control" id="music-toggle-btn" aria-label="Toggle Music">
-      🔊
-    </button>
+    <!-- Heavy-weight Display Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP Animation Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
 
-    <div class="container">
-      
-      <!-- Hero Section -->
-      <div class="glass-card">
-        <div class="decorative-border">
-          <span class="corner-tr"></span>
-          <span class="corner-bl"></span>
-          
-          <div style="text-align: center;">
-            <span class="badge">அன்புடன் வரவேற்கிறோம்</span>
-          </div>
-          
-          <h1 class="title-text">வளைகாப்பு</h1>
-          
-          <div class="floral-divider"><span>❁ ❀ ❁</span></div>
+    <!-- Liquid Gradient Background Orbs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-          <p class="names-text">துர்கா தேவி <br><span style="font-size: 1.4rem; color: #FFD100;">&</span><br> கோபிநாத் ராஜேந்திரன்</p>
-          
-          <div class="floral-divider"><span>❁ ❀ ❁</span></div>
+    <!-- Persistent Global Audio Element -->
+    <audio id="bg-music" loop src="https://res.cloudinary.com/dm7ya7fl2/video/upload/v1780391406/krasnoshchok-krishna-flute-hindu-music-450217_klucx4.mp3"></audio>
+    <div id="audio-toast" class="glass-toast">🎵 Sound Activated</div>
 
-          <p class="poem-text">
-            தாய்மையின் பூரிப்பில் அவள் சிரிக்க,<br> கைகளில் வளையல்கள் இசைக்க,<br> 
-            நம் இல்லம் சிறக்க வரும் மழலையை வாழ்த்த அன்புடன் அழைக்கிறோம்!
-          </p>
-        </div>
-      </div>
+    <!-- MOBILE CONTAINER (Locked to mobile viewports) -->
+    <main class="mobile-wrapper">
 
-      <!-- Details Section -->
-      <div class="glass-card">
-        <div class="decorative-border">
-          <span class="corner-tr"></span>
-          <span class="corner-bl"></span>
-
-          <h2 class="section-heading">மங்கள நிகழ்ச்சி</h2>
-          <div class="floral-divider"><span>🌿</span></div>
-
-          <p class="poem-text">
-            குங்கும மணம் வீச, மங்கல நாதம் ஒலிக்க, வளையலோசை நடுவே வளைகாப்பு நாயகியை வாழ்த்த வாருங்கள்!
-          </p>
-          
-          <div class="detail-grid">
-            <div class="detail-item">
-              <span>📅</span>
-              <p>23 ஆகஸ்ட் 2026</p>
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-image-frame">
+                <img src="IMG20230422181405.jpg" alt="Durga Devi & Gobinath Rajendran">
+                <div class="gradient-overlay"></div>
             </div>
-            <div class="detail-item">
-              <span>🕘</span>
-              <p>காலை 9:30 - 11:00</p>
+            <div class="hero-glass-card">
+                <span class="pulse-tag">THE CELEBRATION</span>
+                <h1 class="main-title">BABY<br><span class="gradient-text">SHOWER</span></h1>
+                <p class="parents-names">Durga Devi <br>& Gobinath Rajendran</p>
+                <div class="bounce-arrow">↓ Swipe Up to Enter</div>
             </div>
-          </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- Location Section -->
-      <div class="glass-card">
-        <div class="decorative-border">
-          <span class="corner-tr"></span>
-          <span class="corner-bl"></span>
+        <!-- WELCOME INTRO (Anti-Minimalism Layer) -->
+        <section class="intro-section">
+            <div class="glass-panel scroll-reveal">
+                <h2 class="section-title-neon">A New Dawn Begins</h2>
+                <p class="narrative-text">
+                    With hearts full of gratitude and energy, we invite you to immerse yourself in a vivid celebration of life, tradition, and future memories.
+                </p>
+            </div>
+        </section>
 
-          <h2 class="section-heading">விழா நடைபெறும் இடம்</h2>
-          <div class="floral-divider"><span>🪔</span></div>
-          
-          <div class="address-box">
-            தமிழ்நாடு கிராம வங்கி அருகில்,<br />
-            பழைய EB ஆபிஸ் எதிரில்,<br />
-            செந்தாரப்பட்டி (அஞ்சல்),<br />
-            கெங்கவல்லி (தாலுகா),<br />
-            சேலம் (மாவட்டம்) - 636110.
-          </div>
+        <!-- PORTRAIT BLOCK 1 -->
+        <section class="portrait-section scroll-reveal">
+            <div class="neon-image-card">
+                <img src="IMG20231112115120-01.jpg" alt="Moments">
+                <div class="card-caption-glass">Bound Together</div>
+            </div>
+        </section>
 
-          <div class="map-container">
-            <iframe
-              title="விழா நடைபெறும் இடத்திற்கான கூகுள் மேப்"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=11.4390278,78.5213056&z=16&output=embed">
-            </iframe>
-          </div>
-        </div>
-      </div>
+        <!-- CORE EVENT DETAILS (Hyper Glassmorphism) -->
+        <section class="details-section">
+            <div class="glass-panel main-details-card scroll-reveal">
+                <div class="card-badge">TRADITIONAL INDIAN RITUALS</div>
+                
+                <div class="info-row">
+                    <span class="label">DATE</span>
+                    <span class="value gold-text">AUGUST 23, 2026</span>
+                </div>
+                <div class="info-divider"></div>
+                <div class="info-row">
+                    <span class="label">TIMING</span>
+                    <span class="value">9:30 AM – 11:00 AM</span>
+                </div>
+                <div class="info-divider"></div>
+                <div class="info-row">
+                    <span class="label">INVITED BY</span>
+                    <span class="value">Family & Friends</span>
+                </div>
+            </div>
+        </section>
 
-      <!-- Footer / Blessing -->
-      <div class="glass-card" style="margin-bottom: 40px;">
-        <div class="decorative-border" style="text-align: center;">
-          <span class="corner-tr"></span>
-          <span class="corner-bl"></span>
+        <!-- PORTRAIT BLOCK 2 (Stacked Grid) -->
+        <section class="gallery-stack">
+            <div class="stacked-card card-left scroll-reveal">
+                <img src="IMG20220608152156.jpg" alt="Gallery 1">
+            </div>
+            <div class="stacked-card card-right scroll-reveal">
+                <img src="IMG20221030140906.jpg" alt="Gallery 2">
+            </div>
+        </section>
 
-          <h2 class="section-heading" style="font-size: 1.6rem;">உங்கள் வருகையே மகிழ்ச்சி</h2>
-          <div class="floral-divider"><span>✨</span></div>
+        <!-- PORTRAIT BLOCK 3 -->
+        <section class="portrait-section scroll-reveal">
+            <div class="neon-image-card alt-border">
+                <img src="IMG20221030140847.jpg" alt="Memories">
+            </div>
+        </section>
 
-          <p class="poem-text">
-            வருகை தரும் நல்உள்ளங்களுக்கு நெஞ்சார்ந்த நன்றிகள். உங்கள் ஆசிகளே எங்கள் மழலையின் முதல் தாலாட்டு.
-          </p>
-          <p style="font-size: 0.9rem; font-weight: 700; color: var(--text-gold); margin-top: 15px;">
-            அன்புடன் அழைக்கும்: <br>குடும்பத்தார் மற்றும் நண்பர்கள்
-          </p>
-        </div>
-      </div>
+        <!-- FINAL IMAGE SCROLL -->
+        <section class="portrait-section scroll-reveal">
+            <div class="neon-image-card">
+                <img src="IMG20220803131341.jpg" alt="Journey">
+            </div>
+        </section>
 
-    </div>
+        <!-- NAVIGATION & LOCATION ZONE -->
+        <section class="location-section">
+            <div class="glass-panel destination-card scroll-reveal">
+                <h3 class="gold-text-header">THE DESTINATION</h3>
+                <p class="address-paragraph">
+                    Near Tamilnadi Grama Bank,<br>
+                    Old EB Office just opposite,<br>
+                    Sendharappatty (post), Gangavalli (taluk),<br>
+                    Salem (district) - 636110.
+                </p>
 
-    <!-- Sticky Bottom Map Button -->
-    <div class="sticky-cta-container">
-      <a href="https://maps.app.goo.gl/2nLwPGV2zJ6ZmfbC9" target="_blank" class="glass-button sticky-cta">
-        <span>🗺️ கூகுள் மேப்பில் வழி அறிய</span>
-      </a>
-    </div>
-  </div>
+                <!-- Embedded Map Container -->
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=11%C2%B026'20.5%22N%2078%C2%B031'16.7%22E&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
 
-  <script>
-    /* ==========================================================
-       JavaScript for Audio and Setup
-       ========================================================== */
-    const welcomeScreen = document.getElementById('welcome-screen');
-    const mainContent = document.getElementById('main-content');
-    const openBtn = document.getElementById('open-invite-btn');
-    const bgMusic = document.getElementById('bg-music');
-    const musicToggleBtn = document.getElementById('music-toggle-btn');
-    let isMusicPlaying = false;
+                <!-- High-Vibrancy Trigger Action Button -->
+                <a href="https://maps.app.goo.gl/2nLwPGV2zJ6ZmfbC9" target="_blank" class="vibrant-cta-btn">
+                    <span class="btn-glow-layer"></span>
+                    <span class="btn-label-text">START GPS NAVIGATION</span>
+                </a>
+            </div>
+        </section>
 
-    // Handle Open Button Click
-    openBtn.addEventListener('click', () => {
-      bgMusic.play().then(() => {
-        isMusicPlaying = true;
-        musicToggleBtn.innerHTML = "🔊";
-      }).catch(err => {
-        console.log("Audio play failed:", err);
-        musicToggleBtn.innerHTML = "🔇";
-      });
+        <footer>
+            <p class="footer-note">CELEBRATING WITH DURGA & GOBINATH • 2026</p>
+        </footer>
 
-      welcomeScreen.style.opacity = '0';
-      setTimeout(() => {
-        welcomeScreen.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-        
-        mainContent.style.height = 'auto';
-        mainContent.style.overflow = 'visible';
-        mainContent.style.opacity = '1';
-      }, 500);
-    });
+    </main>
 
-    // Handle Music Toggle Button
-    musicToggleBtn.addEventListener('click', () => {
-      if (isMusicPlaying) {
-        bgMusic.pause();
-        musicToggleBtn.innerHTML = "🔇";
-        isMusicPlaying = false;
-      } else {
-        bgMusic.play();
-        musicToggleBtn.innerHTML = "🔊";
-        isMusicPlaying = true;
-      }
-    });
-  </script>
+    <script src="app.js"></script>
 </body>
 </html>
