@@ -1,142 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Durga Devi & Gobinath's Baby Shower</title>
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Heavy-weight Display Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- GSAP Animation Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/modernist-dc57e627-ebf4-4691-83bf-be98cd0b3f8e/styles.css">
+  <script src="_ds/modernist-dc57e627-ebf4-4691-83bf-be98cd0b3f8e/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #051224; }
+    a { color: var(--color-accent-700); } a:hover { color: var(--color-accent); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-12px) rotate(4deg); } }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+    @keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(20px,-30px) scale(1.1); } }
+    @keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-25px,25px) scale(1.15); } }
+    @keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(15px,20px) scale(1.05); } }
+    input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid #ffb199; outline-offset: 2px; }
+    .glass { background: linear-gradient(155deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04)); backdrop-filter: blur(22px) saturate(160%); -webkit-backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(255,255,255,0.28); border-radius: 26px; box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.25); }
+    .glass-dark { background: linear-gradient(155deg, rgba(0,0,0,0.28), rgba(0,0,0,0.12)); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); border: 1px solid rgba(255,255,255,0.14); border-radius: 22px; }
+    ::selection { background: rgba(255,255,255,0.35); }
+  </style>
+</helmet>
+<div style="width:100%;min-height:100vh;display:flex;justify-content:center;background:radial-gradient(circle at 20% 0%, #6fb1ff 0%, #2f6fed 32%, #0f2e7a 68%, #051224 100%);font-family:'Archivo','Anek Tamil',sans-serif;position:relative">
+<audio id="bg-music" loop="loop" src="https://res.cloudinary.com/dm7ya7fl2/video/upload/v1780391406/krasnoshchok-krishna-flute-hindu-music-450217_klucx4.mp3"></audio>
 
-    <!-- Liquid Gradient Background Orbs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+<!-- floating gradient orbs behind glass -->
+<div style="position:fixed;top:-60px;left:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#9fd0ff,transparent 70%);filter:blur(10px);opacity:0.55;animation:drift1 9s ease-in-out infinite;z-index:0;pointer-events:none"></div>
+<div style="position:fixed;top:35%;right:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#7ea8ff,transparent 70%);filter:blur(10px);opacity:0.5;animation:drift2 11s ease-in-out infinite;z-index:0;pointer-events:none"></div>
+<div style="position:fixed;bottom:5%;left:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#c9e2ff,transparent 70%);filter:blur(10px);opacity:0.45;animation:drift3 10s ease-in-out infinite;z-index:0;pointer-events:none"></div>
 
-    <!-- Persistent Global Audio Element -->
-    <audio id="bg-music" loop src="https://res.cloudinary.com/dm7ya7fl2/video/upload/v1780391406/krasnoshchok-krishna-flute-hindu-music-450217_klucx4.mp3"></audio>
-    <div id="audio-toast" class="glass-toast">🎵 Sound Activated</div>
+<div style="position:fixed;bottom:24px;left:50%;z-index:99;color:#fff;font-size:12px;font-weight:700;letter-spacing:2px;padding:12px 20px;display:flex;align-items:center;gap:8px;transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275);transform:{{ toastTransform }}" class="glass">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+  இசை ON · MUSIC PLAYING
+</div>
 
-    <!-- MOBILE CONTAINER (Locked to mobile viewports) -->
-    <main class="mobile-wrapper">
+<main style="width:100%;max-width:480px;color:#fff;position:relative;z-index:2;overflow:hidden;padding-bottom:20px">
 
-        <!-- HERO SECTION -->
-        <section class="hero-section">
-            <div class="hero-image-frame">
-                <img src="IMG20230422181405.jpg" alt="Durga Devi & Gobinath">
-                <div class="gradient-overlay"></div>
-            </div>
-            <div class="hero-glass-card">
-                <span class="pulse-tag">THE CELEBRATION</span>
-                <h1 class="main-title">BABY<br><span class="gradient-text">SHOWER</span></h1>
-                <p class="parents-names">Durga Devi <br>& Gobinath</p>
-                <div class="bounce-arrow">↓ Swipe Up to Enter</div>
-            </div>
-        </section>
+  <!-- HERO -->
+  <section data-screen-label="Hero" style="padding:28px 20px 0 20px;min-height:96vh;display:flex;flex-direction:column;position:relative;overflow:hidden">
+    <div class="glass" style="display:flex;justify-content:space-between;align-items:center;padding:12px 18px;font-size:10px;font-weight:800;letter-spacing:2px">
+      <span>அன்புடன் அழைக்கிறோம்</span>
+      <span>EST. 23.08.2026</span>
+    </div>
+    <div id="hero-inner" style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 0">
+      <div class="glass" style="padding:36px 26px;text-align:left">
+        <svg id="hero-baby" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:18px;animation:floaty 4s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3))"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg>
+        <div class="hero-line" style="font-family:'Anek Tamil','Archivo',sans-serif;font-size:38px;font-weight:800;line-height:1.05;background:linear-gradient(90deg,#fff,#cfe4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">வளைகாப்பு</div>
+        <div class="hero-line" style="font-size:56px;font-weight:800;line-height:0.95;letter-spacing:-2px;text-transform:uppercase;margin-top:6px;background:linear-gradient(100deg,#fff 20%,#cfe4ff 60%,#7ea8ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Baby<br>Shower</div>
+        <div class="hero-line glass-dark" style="margin-top:24px;padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:11px;font-weight:800;letter-spacing:3px;opacity:0.85">THE PARENTS-TO-BE</span>
+          <span style="font-size:24px;font-weight:700">Durga Devi &amp; Gobinath</span>
+        </div>
+      </div>
+    </div>
+    <div class="glass" style="padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:3px;justify-content:center">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:blink 1.6s infinite"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+      கீழே ஸ்க்ரோல் செய்யவும் · SCROLL DOWN
+    </div>
+  </section>
 
-        <!-- WELCOME INTRO (Anti-Minimalism Layer) -->
-        <section class="intro-section">
-            <div class="glass-panel scroll-reveal">
-                <h2 class="section-title-neon">A New Dawn Begins</h2>
-                <p class="narrative-text">
-                    With hearts full of gratitude and energy, we invite you to immerse yourself in a vivid celebration of life, tradition, and future memories.
-                </p>
-            </div>
-        </section>
+  <!-- MARQUEE -->
+  <div class="glass-dark" style="overflow:hidden;margin:0 20px 28px 20px">
+    <div style="display:flex;width:max-content;animation:marquee 18s linear infinite;padding:10px 0;font-size:13px;font-weight:800;letter-spacing:3px;white-space:nowrap">
+      <span style="padding:0 12px">வளைகாப்பு விழா ✳ BABY SHOWER ✳ 23 AUGUST 2026 ✳ SENDHARAPPATTY ✳ அன்புடன் வாருங்கள் ✳&nbsp;</span>
+      <span style="padding:0 12px">வளைகாப்பு விழா ✳ BABY SHOWER ✳ 23 AUGUST 2026 ✳ SENDHARAPPATTY ✳ அன்புடன் வாருங்கள் ✳&nbsp;</span>
+    </div>
+  </div>
 
-        <!-- PORTRAIT BLOCK 1 -->
-        <section class="portrait-section scroll-reveal">
-            <div class="neon-image-card">
-                <img src="IMG20231112115120-01.jpg" alt="Moments">
-                <div class="card-caption-glass">Bound Together</div>
-            </div>
-        </section>
+  <!-- WELCOME -->
+  <section data-screen-label="Welcome" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:12px">01 / வரவேற்பு · WELCOME</div>
+    <h2 style="margin:0 0 14px 0;font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-0.5px">ஒரு புதிய<br>வாழ்வு மலர்கிறது.</h2>
+    <p style="margin:0 0 22px 0;font-size:16px;line-height:1.6;opacity:0.9">A tiny pair of feet is about to make our world a whole lot bigger. With hearts full of joy, we invite you to bless Durga Devi as we celebrate her Valaikaappu — a morning of bangles, blessings and laughter.</p>
+    <div class="grayscale" style="width:100%;height:260px;border-radius:20px;overflow:hidden">
+      <image-slot id="welcome-photo" shape="rect" placeholder="Drop a photo of the parents-to-be (optional)" src="uploads/IMG20221030140906.jpg"></image-slot>
+    </div>
+  </section>
 
-        <!-- CORE EVENT DETAILS (Hyper Glassmorphism) -->
-        <section class="details-section">
-            <div class="glass-panel main-details-card scroll-reveal">
-                <div class="card-badge">TRADITIONAL INDIAN RITUALS</div>
-                
-                <div class="info-row">
-                    <span class="label">DATE</span>
-                    <span class="value gold-text">AUGUST 23, 2026</span>
-                </div>
-                <div class="info-divider"></div>
-                <div class="info-row">
-                    <span class="label">TIMING</span>
-                    <span class="value">9:30 AM – 11:00 AM</span>
-                </div>
-                <div class="info-divider"></div>
-                <div class="info-row">
-                    <span class="label">INVITED BY</span>
-                    <span class="value">Family & Friends</span>
-                </div>
-            </div>
-        </section>
+  <!-- COUNTDOWN -->
+  <section data-screen-label="Countdown" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:16px">02 / இன்னும் · COUNTDOWN</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div class="glass-dark" style="padding:18px 14px">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1;background:linear-gradient(100deg,#fff,#cfe4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ cdDays }}</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:3px;margin-top:8px;opacity:0.85">நாட்கள் · DAYS</div>
+      </div>
+      <div class="glass-dark" style="padding:18px 14px">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1">{{ cdHours }}</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:3px;margin-top:8px;opacity:0.85">மணி · HOURS</div>
+      </div>
+      <div class="glass-dark" style="padding:18px 14px">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1">{{ cdMins }}</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:3px;margin-top:8px;opacity:0.85">நிமிடம் · MINUTES</div>
+      </div>
+      <div class="glass-dark" style="padding:18px 14px">
+        <div style="font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1">{{ cdSecs }}</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:3px;margin-top:8px;opacity:0.85">வினாடி · SECONDS</div>
+      </div>
+    </div>
+  </section>
 
-        <!-- PORTRAIT BLOCK 2 (Stacked Grid) -->
-        <section class="gallery-stack">
-            <div class="stacked-card card-left scroll-reveal">
-                <img src="IMG20220608152156.jpg" alt="Gallery 1">
-            </div>
-            <div class="stacked-card card-right scroll-reveal">
-                <img src="IMG20221030140906.jpg" alt="Gallery 2">
-            </div>
-        </section>
+  <!-- DETAILS -->
+  <section data-screen-label="Details" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:16px">03 / விழா விவரம் · THE EVENT</div>
+    <div class="glass-dark" style="display:inline-block;padding:8px 14px;margin-bottom:22px;font-size:10px;font-weight:800;letter-spacing:2px">TRADITIONAL INDIAN RITUALS · பாரம்பரிய சடங்குகள்</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="glass-dark" style="padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:3px;opacity:0.75">தேதி · DATE</span>
+        <span style="font-size:26px;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(100deg,#fff,#cfe4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">AUGUST 23, 2026</span>
+        <span style="font-size:14px;opacity:0.85">ஞாயிற்றுக்கிழமை · Sunday</span>
+      </div>
+      <div class="glass-dark" style="padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:3px;opacity:0.75">நேரம் · TIMING</span>
+        <span style="font-size:26px;font-weight:800;letter-spacing:-0.5px">9:30 AM – 11:00 AM</span>
+      </div>
+      <div class="glass-dark" style="padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:3px;opacity:0.75">அழைப்பு · INVITED BY</span>
+        <span style="font-size:26px;font-weight:800;letter-spacing:-0.5px">Family &amp; Friends</span>
+      </div>
+    </div>
+  </section>
 
-        <!-- PORTRAIT BLOCK 3 -->
-        <section class="portrait-section scroll-reveal">
-            <div class="neon-image-card alt-border">
-                <img src="IMG20221030140847.jpg" alt="Memories">
-            </div>
-        </section>
+  <!-- RSVP -->
+  <section data-screen-label="RSVP" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:12px">04 / வருகை உறுதி · RSVP</div>
+    <h2 style="margin:0 0 20px 0;font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-0.5px">நீங்கள் வருகிறீர்களா?</h2>
+    <sc-if value="{{ rsvpDone }}" hint-placeholder-val="{{ false }}">
+      <div class="glass-dark" style="padding:22px">
+        <div style="font-size:20px;font-weight:800">நன்றி, {{ rsvpSavedName }}!</div>
+        <div style="font-size:14px;margin-top:6px;opacity:0.85">{{ rsvpSavedLine }}</div>
+        <button onClick="{{ resetRsvp }}" style="margin-top:16px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.35);border-radius:14px;padding:10px 16px;font-family:inherit;color:#fff;font-size:11px;font-weight:800;letter-spacing:2px;cursor:pointer;text-align:left">மாற்று · CHANGE</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ rsvpOpen }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label for="rsvp-name" style="font-size:11px;font-weight:800;letter-spacing:2px;opacity:0.85">உங்கள் பெயர் · YOUR NAME</label>
+          <input id="rsvp-name" type="text" placeholder="e.g. Priya" value="{{ rsvpName }}" onChange="{{ onRsvpName }}" style="width:100%;font-size:16px;padding:14px 16px;border:1px solid rgba(255,255,255,0.35);border-radius:14px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);color:#fff;font-family:inherit;box-sizing:border-box">
+        </div>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{ pickYes }}" style="flex:1;padding:14px;border-radius:14px;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:2px;cursor:pointer;text-align:left;border:1px solid rgba(255,255,255,0.4);background:{{ yesBg }};color:#fff">வருகிறேன் · YES</button>
+          <button onClick="{{ pickNo }}" style="flex:1;padding:14px;border-radius:14px;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:2px;cursor:pointer;text-align:left;border:1px solid rgba(255,255,255,0.4);background:{{ noBg }};color:#fff">முடியாது · CAN'T</button>
+        </div>
+        <button onClick="{{ submitRsvp }}" style="width:100%;padding:18px;border-radius:16px;font-family:inherit;font-size:13px;font-weight:800;letter-spacing:2px;cursor:pointer;text-align:left;border:1px solid rgba(255,255,255,0.4);background:linear-gradient(100deg,rgba(255,255,255,0.3),rgba(255,255,255,0.08));backdrop-filter:blur(14px);color:#fff;display:flex;justify-content:space-between;align-items:center">
+          <span>உறுதி செய் · CONFIRM RSVP</span><span>→</span>
+        </button>
+        <div style="font-size:12px;color:#cfe4ff;min-height:14px">{{ rsvpError }}</div>
+      </div>
+    </sc-if>
+  </section>
 
-        <!-- FINAL IMAGE SCROLL -->
-        <section class="portrait-section scroll-reveal">
-            <div class="neon-image-card">
-                <img src="IMG20220803131341.jpg" alt="Journey">
-            </div>
-        </section>
+  <!-- BLESSINGS WALL -->
+  <section data-screen-label="Blessings" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:12px">05 / வாழ்த்து சுவர் · BLESSING WALL</div>
+    <h2 style="margin:0 0 20px 0;font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-0.5px">குழந்தைக்கு ஒரு<br>வாழ்த்து சொல்லுங்கள்</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:22px">
+      <input type="text" placeholder="உங்கள் பெயர் · Your name" value="{{ blessName }}" onChange="{{ onBlessName }}" style="width:100%;font-size:16px;padding:14px 16px;border:1px solid rgba(255,255,255,0.35);border-radius:14px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);color:#fff;font-family:inherit;box-sizing:border-box">
+      <textarea placeholder="உங்கள் வாழ்த்து · Write your blessing…" value="{{ blessMsg }}" onChange="{{ onBlessMsg }}" rows="3" style="width:100%;font-size:16px;padding:14px 16px;border:1px solid rgba(255,255,255,0.35);border-radius:14px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);color:#fff;font-family:inherit;resize:vertical;box-sizing:border-box"></textarea>
+      <button onClick="{{ addBlessing }}" style="align-self:flex-start;padding:14px 24px;border-radius:14px;font-family:inherit;font-size:12px;font-weight:800;letter-spacing:2px;cursor:pointer;text-align:left;border:1px solid rgba(255,255,255,0.4);background:linear-gradient(100deg,rgba(255,255,255,0.3),rgba(255,255,255,0.08));backdrop-filter:blur(14px);color:#fff">பதிவு செய் · POST ♥</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ blessings }}" as="b" hint-placeholder-count="2">
+        <div class="glass-dark" style="padding:16px 18px">
+          <div style="font-size:15px;line-height:1.5">{{ b.msg }}</div>
+          <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#cfe4ff;margin-top:8px">— {{ b.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
 
-        <!-- NAVIGATION & LOCATION ZONE -->
-        <section class="location-section">
-            <div class="glass-panel destination-card scroll-reveal">
-                <h3 class="gold-text-header">THE DESTINATION</h3>
-                <p class="address-paragraph">
-                    Near Tamilnadi Grama Bank,<br>
-                    Old EB Office just opposite,<br>
-                    Sendharappatty (post), Gangavalli (taluk),<br>
-                    Salem (district) - 636110.
-                </p>
+  <!-- LOCATION -->
+  <section data-screen-label="Location" data-reveal="1" class="glass" style="padding:32px 22px;margin:0 20px 24px 20px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;color:#cfe4ff;margin-bottom:12px">06 / இடம் · THE DESTINATION</div>
+    <h2 style="margin:0 0 16px 0;font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-0.5px">வாருங்கள்,<br>வழி இதோ.</h2>
+    <p style="margin:0 0 20px 0;font-size:15px;line-height:1.7;opacity:0.9">Near Tamilnadi Grama Bank,<br>Old EB Office just opposite,<br>Sendharappatty (post), Gangavalli (taluk),<br>Salem (district) — 636110.</p>
+    <div class="glass-dark" style="overflow:hidden;margin-bottom:20px;padding:4px">
+      <iframe title="Event location map" src="https://maps.google.com/maps?q=11%C2%B026'20.5%22N%2078%C2%B031'16.7%22E&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="250" style="border:0;display:block;border-radius:18px;filter:saturate(1.3) contrast(1.05)" loading="lazy"></iframe>
+    </div>
+    <a href="https://maps.app.goo.gl/2nLwPGV2zJ6ZmfbC9" target="_blank" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:18px 20px;border-radius:16px;font-size:13px;font-weight:800;letter-spacing:2px;border:1px solid rgba(255,255,255,0.4);background:linear-gradient(100deg,rgba(255,255,255,0.32),rgba(255,255,255,0.1));backdrop-filter:blur(14px);color:#fff">
+      <span>GPS வழிகாட்டி · START NAVIGATION</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 22 2l-9 19-2-8Z"></path></svg>
+    </a>
+  </section>
 
-                <!-- Embedded Map Container -->
-                <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=11%C2%B026'20.5%22N%2078%C2%B031'16.7%22E&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-
-                <!-- High-Vibrancy Trigger Action Button -->
-                <a href="https://maps.app.goo.gl/2nLwPGV2zJ6ZmfbC9" target="_blank" class="vibrant-cta-btn">
-                    <span class="btn-glow-layer"></span>
-                    <span class="btn-label-text">START GPS NAVIGATION</span>
-                </a>
-            </div>
-        </section>
-
-        <footer>
-            <p class="footer-note">CELEBRATING WITH DURGA & GOBINATH • 2026</p>
-        </footer>
-
-    </main>
-
-    <script src="app.js"></script>
+  <!-- FOOTER -->
+  <footer data-reveal="1" style="padding:12px 24px 30px 24px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center">
+    <div style="font-family:'Anek Tamil','Archivo',sans-serif;font-size:19px;font-weight:800;background:linear-gradient(100deg,#fff,#cfe4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">அன்புடன் எதிர்பார்க்கிறோம்!</div>
+    <div style="font-size:10px;font-weight:800;letter-spacing:3px;opacity:0.6">CELEBRATING WITH DURGA &amp; GOBINATH · 2026</div>
+  </footer>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;enableMusic&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;rich&quot;,&quot;options&quot;:[&quot;rich&quot;,&quot;subtle&quot;,&quot;off&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = {
+    cd: { d: '000', h: '00', m: '00', s: '00' },
+    toastOn: false,
+    rsvpName: '', rsvpChoice: 'yes', rsvpDone: false, rsvpSavedName: '', rsvpError: '',
+    blessName: '', blessMsg: '', blessings: []
+  };
+  componentDidMount() {
+    const target = new Date('2026-08-23T09:30:00+05:30').getTime();
+    const pad = (n) => String(n).padStart(2, '0');
+    const tick = () => {
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor(diff / 3600000) % 24;
+      const m = Math.floor(diff / 60000) % 60;
+      const s = Math.floor(diff / 1000) % 60;
+      this.setState({ cd: { d: String(d).padStart(3, '0'), h: pad(h), m: pad(m), s: pad(s) } });
+    };
+    tick();
+    this._timer = setInterval(tick, 1000);
+    try {
+      const rsvp = JSON.parse(localStorage.getItem('bs2026-rsvp') || 'null');
+      if (rsvp && rsvp.name) this.setState({ rsvpDone: true, rsvpSavedName: rsvp.name, rsvpChoice: rsvp.choice });
+      const bl = JSON.parse(localStorage.getItem('bs2026-blessings') || '[]');
+      if (Array.isArray(bl)) this.setState({ blessings: bl });
+    } catch (e) {}
+    if (this.props.enableMusic ?? true) {
+      this._audioInit = false;
+      this._tryAudio = () => {
+        if (this._audioInit) return;
+        const audio = document.getElementById('bg-music');
+        if (!audio) return;
+        audio.play().then(() => {
+          this._audioInit = true;
+          this.setState({ toastOn: true });
+          setTimeout(() => this.setState({ toastOn: false }), 3000);
+          ['touchstart', 'scroll', 'click'].forEach(ev => window.removeEventListener(ev, this._tryAudio));
+        }).catch(() => {});
+      };
+      ['touchstart', 'scroll', 'click'].forEach(ev => window.addEventListener(ev, this._tryAudio));
+    }
+    const motion = this.props.motion ?? 'rich';
+    if (motion !== 'off' && window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      const dist = motion === 'rich' ? 45 : 20;
+      const dur = motion === 'rich' ? 0.9 : 0.5;
+      gsap.from('.hero-line', { y: 60, opacity: 0, duration: 1.1, stagger: 0.18, ease: 'power4.out' });
+      gsap.utils.toArray('[data-reveal]').forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
+          y: dist, opacity: 0, duration: dur, ease: 'power2.out'
+        });
+      });
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    if (this._tryAudio) ['touchstart', 'scroll', 'click'].forEach(ev => window.removeEventListener(ev, this._tryAudio));
+  }
+  renderVals() {
+    const s = this.state;
+    const choice = s.rsvpChoice;
+    return {
+      cdDays: s.cd.d, cdHours: s.cd.h, cdMins: s.cd.m, cdSecs: s.cd.s,
+      toastTransform: s.toastOn ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(120px)',
+      rsvpDone: s.rsvpDone, rsvpOpen: !s.rsvpDone,
+      rsvpName: s.rsvpName, rsvpSavedName: s.rsvpSavedName, rsvpError: s.rsvpError,
+      rsvpSavedLine: choice === 'yes' ? 'உங்கள் வருகை உறுதி செய்யப்பட்டது · See you on August 23!' : 'பரவாயில்லை — உங்கள் வாழ்த்துகள் எங்களுடன் · You will be missed!',
+      onRsvpName: (e) => this.setState({ rsvpName: e.target.value }),
+      pickYes: () => this.setState({ rsvpChoice: 'yes' }),
+      pickNo: () => this.setState({ rsvpChoice: 'no' }),
+      yesBg: choice === 'yes' ? 'linear-gradient(100deg,rgba(255,255,255,0.35),rgba(255,255,255,0.1))' : 'rgba(255,255,255,0.08)',
+      noBg: choice === 'no' ? 'linear-gradient(100deg,rgba(255,255,255,0.35),rgba(255,255,255,0.1))' : 'rgba(255,255,255,0.08)',
+      submitRsvp: () => {
+        const name = s.rsvpName.trim();
+        if (!name) { this.setState({ rsvpError: 'பெயரை உள்ளிடவும் · Please enter your name' }); return; }
+        localStorage.setItem('bs2026-rsvp', JSON.stringify({ name, choice }));
+        this.setState({ rsvpDone: true, rsvpSavedName: name, rsvpError: '' });
+      },
+      resetRsvp: () => this.setState({ rsvpDone: false, rsvpName: s.rsvpSavedName }),
+      blessName: s.blessName, blessMsg: s.blessMsg, blessings: s.blessings,
+      onBlessName: (e) => this.setState({ blessName: e.target.value }),
+      onBlessMsg: (e) => this.setState({ blessMsg: e.target.value }),
+      addBlessing: () => {
+        const name = s.blessName.trim() || 'நண்பர் · A friend';
+        const msg = s.blessMsg.trim();
+        if (!msg) return;
+        const blessings = [{ name, msg }, ...s.blessings];
+        localStorage.setItem('bs2026-blessings', JSON.stringify(blessings));
+        this.setState({ blessings, blessMsg: '' });
+      }
+    };
+  }
+}
+</script>
 </body>
 </html>
